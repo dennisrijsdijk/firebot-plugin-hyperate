@@ -1,14 +1,17 @@
 {
     "compilerOptions": {
         "outDir": "./dist/",
-        "target": "ES6",
-        "module": "CommonJS",
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
         "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
         "noImplicitAny": true,
+        "strict": true,
         "sourceMap": true,
-        "moduleResolution": "node",
         "experimentalDecorators": true,
-        "downlevelIteration": true
+        "skipLibCheck": true
     },
-    "include": ["./src/**/*"]
+    "include": ["./src/**/*", "./tsdown.config.mts"]
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 132.34 132.34">
+    <defs>
+        <style>
+            .cls-1{fill:#1d1d1b;}
+            .cls-2{fill:#df1340;}
+            .cls-3{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:4.68px;}
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect class="cls-1" width="132.34" height="132.34"/>
+    <circle class="cls-1" cx="66.17" cy="66.17" r="66.17"/>
+
+    <!-- Enlarged logo -->
+    <g transform="translate(66.17 66.17) scale(1.5) translate(-66.17 -66.17)">
+        <path class="cls-2"
+              d="M98.74,42.43a23,23,0,0,0-32.57,0A23,23,0,0,0,33.61,75l32.56,32.56L98.74,75A23,23,0,0,0,98.74,42.43Z"/>
+
+        <path class="cls-3"
+              d="M23.67,65.34H37.84L57.51,48.4V85.32L69,71.22A4.34,4.34,0,0,1,76.69,74v7.46l19-16.11,14.18,0"/>
+    </g>
+</svg>

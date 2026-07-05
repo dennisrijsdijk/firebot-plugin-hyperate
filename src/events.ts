@@ -1,6 +1,6 @@
-import {modules} from "./main";
+import firebot, { EventSource } from "@crowbartools/firebot-types";
 
-const EVENT_SOURCE = {
+export const eventSource: EventSource = {
     id: "hyperate",
     name: "HypeRate",
     description: "Heartrate Events for HypeRate",
@@ -12,10 +12,10 @@ const EVENT_SOURCE = {
             manualMetadata: {
                 rate: 80
             },
-            isIntegration: true,
             activityFeed: {
                 icon: "fad fa-heartbeat",
-                getMessage: (eventData: {rate: number}) => {
+                getMessage: (data: unknown) => {
+                    const eventData = data as { rate: number }
                     return `Received heartrate event from HypeRate: ${eventData.rate} bpm.`;
                 }
             }
@@ -23,10 +23,6 @@ const EVENT_SOURCE = {
     ]
 }
 
-export function registerEvents() {
-    modules.eventManager.registerEventSource(EVENT_SOURCE);
-}
-
 export function triggerHeartRate(rate: number) {
-    modules.eventManager.triggerEvent("hyperate", "heartrate", {rate: rate});
+    firebot.events.trigger("hyperate", "heartrate", {rate: rate});
 }

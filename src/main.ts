@@ -1,33 +1,41 @@
-import {Firebot, ScriptModules} from "@crowbartools/firebot-custom-scripts-types";
-import {definition, integration} from "./integration";
+import { eventSource } from "./events";
+import hyperateLogo from "./hyperate-logo.svg";
+import integration from "./integration"; "./integration";
+import { Plugin } from "@crowbartools/firebot-types";
+import variables from "./variables";
 
-interface Params { }
-
-const script: Firebot.CustomScript<Params> = {
-  getScriptManifest: () => {
-    return {
-      name: "Firebot Hyperate",
-      description: "A Firebot Integration for Hyperate.",
-      author: "DennisOnTheInternet",
-      version: "1.0.0",
-      firebotVersion: "5",
-      website: "https://www.hyperate.io/",
-      startupOnly: true
-    };
+const plugin: Plugin = {
+  manifest: {
+    name: "Hyperate",
+    version: PLUGIN_VERSION,
+    author: "DennisOnTheInternet",
+    description: "Hyperate heartrate events for Firebot",
+    tags: [
+      "heartrate",
+      "hyperate",
+      "events"
+    ],
+    repo: "https://github.com/dennisrijsdijk/firebot-plugin-hyperate",
+    minimumFirebotVersion: {
+      major: 5,
+      minor: 67,
+      patch: 0
+    },
+    icon: {
+      type: "custom",
+      url: `data:image/svg+xml;base64,${hyperateLogo}`
+    }
   },
-  getDefaultParameters: () => {
-    return { };
+  registers: {
+    eventSources: [
+      eventSource
+    ],
+    integrations: [
+      integration
+    ],
+    variables
   },
-  run: async (runRequest) => {
-    modules = runRequest.modules;
-    modules.integrationManager.registerIntegration({definition, integration});
-  },
-  stop: () => {
-    integration.disconnect();
-  }
-};
+  onUnload: integration.integration.disconnect!
+}
 
-export default script;
-
-export let modules: ScriptModules = null;
-
+export default plugin;

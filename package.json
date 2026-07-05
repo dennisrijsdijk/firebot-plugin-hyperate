@@ -1,32 +1,23 @@
 {
-  "name": "firebot-custom-script-hyperate",
-  "scriptOutputName": "hyperateScript",
-  "version": "1.0.0",
+  "name": "firebot-plugin-hyperate",
+  "pluginOutputName": "firebot-hyperate",
+  "version": "1.1.0",
   "description": "",
   "main": "",
   "scripts": {
-    "build": "webpack",
-    "build:dev": "npm run build && npm run copy",
-    "copy": "node ./scripts/copy-build.js",
-    "test": "jest"
+    "build": "tsdown",
+    "build:dev": "tsdown --minify false && npm run copy",
+    "copy": "node ./scripts/copy-build.js"
   },
-  "author": "DennisOnTheInternet",
-  "license": "GNU3",
+  "author": "dennisrijsdijk",
+  "license": "GPL-3.0",
   "devDependencies": {
-    "@crowbartools/firebot-custom-scripts-types": "^5.60.1",
-    "@types/node": "^18.18.2",
-    "@types/ws": "^8.5.4",
-    "jest": "^29.1.1",
-    "terser-webpack-plugin": "^5.3.10",
-    "ts-jest": "^29.1.1",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.3.3",
-    "webpack": "5.89",
-    "webpack-cli": "^5.1.4",
-    "ws": "^8.12.1"
+    "@crowbartools/firebot-types": "^5.67.0-alpha26",
+    "@types/node": "^22.19.21",
+    "tsdown": "^0.22.3",
+    "typescript": "^5.9.2"
   },
   "volta": {
-    "node": "18.18.2",
-    "npm": "10.2.4"
+    "node": "24.10.0"
   }
 }

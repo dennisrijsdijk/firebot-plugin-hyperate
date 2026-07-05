@@ -1,20 +1,14 @@
-import {ReplaceVariable} from "@crowbartools/firebot-custom-scripts-types/types/modules/replace-variable-manager";
-import {modules} from "./main";
+import type { ReplaceVariable } from "@crowbartools/firebot-types";
 
 let rate: number = 0;
 let time: number = 0;
 
-export function update(newRate: number, newTime: number) {
+export function updateHeartRateValues(newRate: number, newTime: number) {
     rate = newRate;
     time = newTime;
 }
 
-export function loadVariables() {
-    modules.replaceVariableManager.registerReplaceVariable(HeartRateVariable);
-    modules.replaceVariableManager.registerReplaceVariable(LastHeartRateTime);
-}
-
-const HeartRateVariable: ReplaceVariable = {
+const heartrateVariable: ReplaceVariable = {
     definition: {
         description: "HypeRate's last reported heart rate in bpm.",
         handle: "heartrate",
@@ -25,7 +19,7 @@ const HeartRateVariable: ReplaceVariable = {
     }
 }
 
-const LastHeartRateTime: ReplaceVariable = {
+const heartrateTimeVariable: ReplaceVariable = {
     definition: {
         description: "The time in seconds since the last heartbeat from HypeRate",
         handle: "heartrateTime",
@@ -35,3 +29,8 @@ const LastHeartRateTime: ReplaceVariable = {
         return Math.round(Date.now() / 1000 - time);
     }
 }
+
+export default [
+    heartrateTimeVariable,
+    heartrateVariable
+];
