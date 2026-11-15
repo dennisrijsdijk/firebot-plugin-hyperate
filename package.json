@@ -12,7 +12,7 @@
   "author": "dennisrijsdijk",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@crowbartools/firebot-types": "^5.67.0-alpha26",
+    "@crowbartools/firebot-types": "^5.67.0",
     "@types/node": "^22.19.21",
     "tsdown": "^0.22.3",
     "typescript": "^5.9.2"
