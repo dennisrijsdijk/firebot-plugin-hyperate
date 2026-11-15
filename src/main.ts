@@ -1,6 +1,6 @@
 import { eventSource } from "./events";
 import hyperateLogo from "./hyperate-logo.svg";
-import integration from "./integration"; "./integration";
+import integration from "./integration";
 import { Plugin } from "@crowbartools/firebot-types";
 import variables from "./variables";
 
@@ -9,7 +9,7 @@ const plugin: Plugin = {
     name: "Hyperate",
     version: PLUGIN_VERSION,
     author: "DennisOnTheInternet",
-    description: "Hyperate heartrate events for Firebot",
+    description: "Hyperate heartrate events for Firebot. Configure in Settings > Integrations > HypeRate",
     tags: [
       "heartrate",
       "hyperate",
